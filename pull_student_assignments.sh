@@ -41,6 +41,11 @@ while read line; do
         # Copy the student's writeup to write-up
         cp -i *.pdf ../write-ups/$line.pdf
     fi
-    cd ..
+    pwd_msg=$(pwd 2>&1)
+
+    if [[ $pwd_msg == *"$line"* ]]
+    then
+        cd ..
+    fi
     
 done <$student_list_path
