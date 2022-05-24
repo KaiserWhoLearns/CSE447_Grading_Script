@@ -5,8 +5,10 @@
 # The text file should be formated as "deliverable_index test_name that will be called in nosetests"
 # Be sure to include a white space at the end of .txt file!!!
 
-read -p "Enter the student netId: " id
-read -p "Output error message (Y/n): " verbose
+# read -p "Enter the student netId: " id
+# read -p "Output error message (Y/n): " verbose
+id=$1
+verbose=$2
 cd $id
 
 final_err=""
