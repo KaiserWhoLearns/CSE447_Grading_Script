@@ -16,8 +16,8 @@ if [[ $pwd_msg != *"$id"* ]]
 then
     echo "There is no corresponding directory for $id"
 else
-    rsync -a --delete ../tests/ tests/
-    rsync -a --delete ../data/ data/
+    rsync -a --delete ../a2-tests/ tests/
+    rsync -a --delete ../a2-data/ data/
     final_err=""
     failed_summary="The failed tests are for delvierables "
     all_pass=true
