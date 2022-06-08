@@ -36,28 +36,30 @@ bubblesort() {
 
 read -p "Enter the path to student netIds: " student_list_path
 read -p "Enter language (english/norwegian) to eval: " language
-read -p "Enter 1,2,3,4 for test index: " test_idx
+read -p "Enter 1,2,3,4 for test index: " index
 read -p "Enter dev/test for mode: " mode
 
 scores=()
 idx=0
+base_dir="/gscratch/ark/huikas/CSE447_Grading_Script"
 while read line; do
     sub_msg=$(cd $line 2>&1)
     cd $line
     # Copy the hiddentest to student test
-    rsync -a --delete ../a3-tests/ tests/
-    rsync -a --delete ../a3-data/ data/
+    rsync -a --delete $base_dir/a3-tests/ tests/
+    rsync -a --delete $base_dir/a3-data/ data/
+    rsync -a --delete $base_dir/a3-hidden_data/ hidden_data/
 
-    test_msg=$(nosetests -s tests/test_parser.py:test_${mode}_preds_bakeoff_d5_${index}_${language} 2>&1)
+    test_msg=$(nosetests tests/test_parser.py:test_${mode}_preds_bakeoff_d5_${index}_${language} 2>&1)
 
-    if [[ $test_msg == *"OK"* ]]
+    if [[ $test_msg == *"OK" ]]
     then
         # Student submit the extra credit, compute their accuracy
-        accuracy_msg=$(nosetests -s tests/test_parser.py:test_${mode}_preds_bakeoff_d5_${index}_${language} | grep "BONUS_TEST_ACC=")
+        accuracy_msg=$(echo $test_msg | grep "BONUS_TEST_ACC=")
         accuracy_list_format=($accuracy_msg)
         student_acc=${accuracy_list_format[1]}
         scores[$idx]="$line $student_acc"
-        # scores+=("$line $student_acc")
+
         idx=$idx+1
     fi
     

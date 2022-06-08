@@ -10,6 +10,7 @@ from mynlplib.neural_net import FFActionChooser, FFCombiner, VanillaWordEmbeddin
 import torch
 import torch.autograd as ag
 import torch.optim as optim
+import sys
 
 EMBEDDING_DIM = 64
 TEST_EMBEDDING_DIM = 4
@@ -515,6 +516,7 @@ def test_dev_preds_bakeoff_d5_1_english():
     acc = float(correct) / total
     exp = 0.78
     print(f"BONUS_TEST_ACC= {acc}")
+    sys.stderr.write(f"BONUS_TEST_ACC= {acc}\n")
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
 
 def test_dev_preds_bakeoff_d5_2_norwegian():
@@ -535,6 +537,7 @@ def test_dev_preds_bakeoff_d5_2_norwegian():
     acc = float(correct) / total
     exp = 0.73
     print(f"BONUS_TEST_ACC= {acc}")
+    sys.stderr.write(f"BONUS_TEST_ACC= {acc}\n")
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
 
 # Hidden
@@ -556,6 +559,7 @@ def test_test_preds_bakeoff_d5_3_english():
     acc = float(correct) / total
     exp = 0.74
     print(f"BONUS_TEST_ACC= {acc}")
+    sys.stderr.write(f"BONUS_TEST_ACC= {acc}\n")
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
 
 # Hidden
@@ -577,4 +581,5 @@ def test_test_preds_bakeoff_d5_4_norwegian():
     acc = float(correct) / total
     exp = 0.72
     print(f"BONUS_TEST_ACC= {acc}")
+    sys.stderr.write(f"BONUS_TEST_ACC= {acc}\n")
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
