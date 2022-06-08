@@ -38,10 +38,11 @@ read -p "Enter the path to student netIds: " student_list_path
 read -p "Enter language (english/norwegian) to eval: " language
 read -p "Enter 1,2,3,4 for test index: " index
 read -p "Enter dev/test for mode: " mode
+read -p "Enter base dir: " base_dir
 
 scores=()
 idx=0
-base_dir="/gscratch/ark/huikas/CSE447_Grading_Script"
+
 while read line; do
     sub_msg=$(cd $line 2>&1)
     cd $line
