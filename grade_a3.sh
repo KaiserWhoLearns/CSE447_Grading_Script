@@ -1,6 +1,6 @@
 #!/bin/bash
-# Authored by Kaiser Sun, Apr 28, 2022
-# Grading script for Assignment 2, CSE447/M557 at University of Washington
+# Authored by Kaiser Sun, June 8, 2022
+# Grading script for Assignment 3, CSE447/M557 at University of Washington
 # To change it to other assignment, change the name of .txt file
 # The text file should be formated as "deliverable_index test_name that will be called in nosetests"
 # Be sure to include a white space at the end of .txt file!!!
@@ -33,7 +33,7 @@ else
             final_err+=$test_msg
             failed_summary+="$grading_idx, "
         fi
-    done <../test_names/a2_tests.txt
+    done <../test_names/a3_tests.txt
     if [[ $all_pass != true ]]
     then
         if [[ $verbose == *"Y"* ]]
