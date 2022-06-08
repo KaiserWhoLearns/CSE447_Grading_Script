@@ -514,6 +514,7 @@ def test_dev_preds_bakeoff_d5_1_english():
         total += 1
     acc = float(correct) / total
     exp = 0.78
+    print("BONUS_TEST_ACC=", acc)
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
 
 def test_dev_preds_bakeoff_d5_2_norwegian():
@@ -533,6 +534,7 @@ def test_dev_preds_bakeoff_d5_2_norwegian():
         total += 1
     acc = float(correct) / total
     exp = 0.73
+    print("BONUS_TEST_ACC=", acc)
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
 
 # Hidden
@@ -553,6 +555,7 @@ def test_test_preds_bakeoff_d5_3_english():
         total += 1
     acc = float(correct) / total
     exp = 0.74
+    print("BONUS_TEST_ACC=", acc)
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
 
 # Hidden
@@ -573,4 +576,5 @@ def test_test_preds_bakeoff_d5_4_norwegian():
         total += 1
     acc = float(correct) / total
     exp = 0.72
+    print("BONUS_TEST_ACC=", acc)
     assert acc > exp, "ERROR: Expected {} Got {}".format(exp, acc)
